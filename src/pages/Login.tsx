@@ -1,13 +1,14 @@
 import React from 'react';
-import { login } from '@/actions';
-import { PATHS } from '@/constants';
-import { Input } from '@/ui/Input';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 
+import { Input } from '@/ui/Input';
+import { PATHS } from '@/router/paths';
+import { useAppSelector, auth } from '@/model';
+
 export const Login = () => {
-    const { user } = useSelector((state) => state.user);
-    const formMessages = useSelector((state) => state.auth.authForm);
+    const { user } = useAppSelector((state) => state.user);
+    const formMessages = useAppSelector((state) => state.auth.authForm);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -16,11 +17,11 @@ export const Login = () => {
 
     const loginAction = (e) => {
         e.preventDefault();
-        dispatch(login(email, password));
+        dispatch(auth.login(email, password));
     };
 
     if (user) {
-        history.push(PATHS.profile);
+        history.push(PATHS.mainScreen);
     }
 
     return (

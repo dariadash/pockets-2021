@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Modal } from '@/ui';
+import { Modal } from '../../../ui';
 import { useDispatch } from 'react-redux';
-import { useAppSelector } from '@/model/reducers/hooks';
-import { hideModal } from '@/model/actions/categories';
+import { categories, useAppSelector } from '@/model';
 
 
 export const AddCategoryForm = () => {
@@ -12,7 +11,7 @@ export const AddCategoryForm = () => {
     const modalVisible = useAppSelector((store) => store.categories.addModalVisible)
     const dispatch = useDispatch()
     return (
-        <Modal visible={modalVisible} onClose={() => dispatch(hideModal())} onSubmit={() => alert('Он сабмит!')}>
+        <Modal visible={modalVisible} onClose={() => dispatch(categories.hideModal())} onSubmit={() => alert('Он сабмит!')}>
             <h1 className="modal--header"> Добавить данные </h1>
             <div className="switch--wrapper">
                 <div

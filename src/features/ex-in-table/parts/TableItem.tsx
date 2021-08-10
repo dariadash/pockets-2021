@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Edit from '../icons/edit.svg';
-import Trash from '../icons/trash-2.svg';
+import Edit from '@/ui/icons/edit.svg';
+import Trash from '@/ui/icons/trash-2.svg';
 
 // ToDo: Типы
 export const TableItem = ({ item }: any) => {

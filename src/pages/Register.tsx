@@ -1,10 +1,9 @@
-import { register } from '@/actions';
-import { setRegisterStatus } from '@/actions/register';
-import { PATHS } from '@/constants';
-import { Input } from '@/ui/Input';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
+
+import { Input } from '@/ui/Input';
+import { useAppSelector, register } from '@/model'
 
 export const Register = () => {
     const [username, setUsername] = React.useState('');
@@ -12,17 +11,17 @@ export const Register = () => {
     const [email, setEmail] = React.useState('');
     const history = useHistory();
     const dispatch = useDispatch();
-    const formMessages = useSelector((store) => store.register.authForm);
-    const regStatus = useSelector((store) => store.register.status);
+    const formMessages = useAppSelector((store) => store.register.authForm);
+    const regStatus = useAppSelector((store) => store.register.status);
 
     const registerAction = (e) => {
         e.preventDefault();
-        dispatch(register(username, email, password));
+        dispatch(register.register(username, email, password));
     };
 
     React.useEffect(() => {
         return () => {
-            dispatch(setRegisterStatus(false));
+            dispatch(register.setRegisterStatus(false));
         };
     }, []);
 

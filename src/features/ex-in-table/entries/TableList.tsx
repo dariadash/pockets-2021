@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { useAppSelector } from '@/model/reducers/hooks';
-import Add from '../icons/x-circle.svg';
+import { useAppSelector } from '@/model';
+import Add from '@/ui/icons/x-circle.svg';
 import { TableItem } from '../parts';
 
 

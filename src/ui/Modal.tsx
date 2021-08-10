@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Close from './icons/x-square.svg';
+import Close from '@/ui/icons/x-square.svg';
 
 type Props = {
   visible: boolean,

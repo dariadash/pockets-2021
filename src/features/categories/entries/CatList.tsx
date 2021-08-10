@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Add from '../icons/x-circle.svg';
+import Add from '@/ui/icons/x-circle.svg';
 import { CatItem } from '../parts';
 import { useDispatch } from 'react-redux';
-import { useAppSelector } from '@/model/reducers/hooks';
+import { useAppSelector } from '@/model';
 import { showModal } from '@/model/actions/categories';
 
 
